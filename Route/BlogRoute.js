@@ -1,0 +1,12 @@
+const expess = require('express')
+const Auth = require('../Config/Auth')
+const { Blog, Blog_Add, blog_own, blog_single, Del,edite_get ,edite_post} = require('../Controlller/BlogController')
+const BlogRote = expess.Router()
+BlogRote.get("/blog",Auth,Blog)
+BlogRote.post("/add",Auth,Blog_Add)
+BlogRote.get("/own",Auth,blog_own)
+BlogRote.get("/single/:id",blog_single)
+BlogRote.post("/del",Del)
+BlogRote.get("/edite/:id",edite_get)
+BlogRote.put("/edite/:id",edite_post)
+module.exports=BlogRote
